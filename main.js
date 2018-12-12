@@ -14,8 +14,14 @@ const rbusiness = 'https://www.reddit.com/r/business.json';
 const stories =[];
 
 fetch(rbusiness)
-    .then(blob => blob.json())
+    .then(response => response.json())
     .then(data => {
         stories.push(...data.data.children)
         stories.forEach(story => console.log(story.data.title))
         });
+
+function newStory(data)
+        {
+          document.getElementById('card').innerHTML = document.getElementById('card').innerHTML +" "+ data;
+        }
+        
